@@ -6,7 +6,6 @@ import java.io.File
 
 object Aligning {
     fun align(inputFile: File, outputFile: File) {
-        logger.info("Aligning ${inputFile.name} to ${outputFile.name}")
         ZipAligner.align(inputFile, outputFile)
     }
 }

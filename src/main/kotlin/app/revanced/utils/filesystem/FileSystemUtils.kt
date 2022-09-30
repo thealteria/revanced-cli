@@ -7,10 +7,10 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.util.zip.ZipEntry
 
-internal class ZipFileSystemUtils(
+internal class FileSystemUtils(
     file: File
 ) : Closeable {
-    private var zipFileSystem = FileSystems.newFileSystem(file.toPath(), mapOf("noCompression" to true))
+    private var fileSystem = FileSystems.newFileSystem(file.toPath(), mapOf("noCompression" to true))
 
     private fun Path.deleteRecursively() {
         if (!Files.exists(this)) {
@@ -26,7 +26,7 @@ internal class ZipFileSystemUtils(
         Files.delete(this)
     }
 
-    internal fun getFile(path: String) = zipFileSystem.getPath(path)
+    internal fun getFile(path: String) = fileSystem.getPath(path)
 
     internal fun writePathRecursively(path: Path) {
         Files.list(path).use { fileStream ->
@@ -52,13 +52,13 @@ internal class ZipFileSystemUtils(
         }
     }
 
-    internal fun write(path: String, content: ByteArray) = Files.write(zipFileSystem.getPath(path), content)
+    internal fun write(path: String, content: ByteArray) = Files.write(fileSystem.getPath(path), content)
 
-    private fun Path.getRelativePath(path: Path): Path = zipFileSystem.getPath(path.relativize(this).toString())
+    private fun Path.getRelativePath(path: Path): Path = fileSystem.getPath(path.relativize(this).toString())
 
     // TODO: figure out why the file system is uncompressed by default and how to fix it
     internal fun uncompress(vararg paths: String) =
-        paths.forEach { Files.setAttribute(zipFileSystem.getPath(it), "zip:method", ZipEntry.STORED) }
+        paths.forEach { Files.setAttribute(fileSystem.getPath(it), "zip:method", ZipEntry.STORED) }
 
-    override fun close() = zipFileSystem.close()
+    override fun close() = fileSystem.close()
 }

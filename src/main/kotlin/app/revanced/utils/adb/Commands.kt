@@ -20,8 +20,8 @@ internal fun JadbDevice.run(command: String, su: Boolean = true): Int {
     return this.buildCommand(command, su).start().waitFor()
 }
 
-internal fun JadbDevice.copy(targetPath: String, file: File) {
-    push(file, RemoteFile(targetPath))
+internal fun JadbDevice.copy(file: File, targetFile: String) {
+    push(file, RemoteFile(targetFile))
 }
 
 internal fun JadbDevice.createFile(targetFile: String, content: String) {

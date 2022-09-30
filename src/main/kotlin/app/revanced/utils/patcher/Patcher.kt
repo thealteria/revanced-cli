@@ -3,6 +3,7 @@ package app.revanced.utils.patcher
 import app.revanced.cli.command.MainCommand
 import app.revanced.cli.command.MainCommand.args
 import app.revanced.cli.command.MainCommand.logger
+import app.revanced.patcher.Apk
 import app.revanced.patcher.Patcher
 import app.revanced.patcher.data.Data
 import app.revanced.patcher.extensions.PatchExtensions.compatiblePackages
@@ -11,9 +12,9 @@ import app.revanced.patcher.extensions.PatchExtensions.include
 import app.revanced.patcher.extensions.PatchExtensions.patchName
 import app.revanced.patcher.patch.Patch
 
-fun Patcher.addPatchesFiltered(allPatches: List<Class<out Patch<Data>>>) {
-    val packageName = this.data.packageMetadata.packageName
-    val packageVersion = this.data.packageMetadata.packageVersion
+fun Patcher.addPatchesFiltered(allPatches: List<Class<out Patch<Data>>>, baseApk: Apk.Base) {
+    val packageName = baseApk.packageMetadata.packageName
+    val packageVersion = baseApk.packageMetadata.packageVersion
 
     val includedPatches = mutableListOf<Class<out Patch<Data>>>()
     allPatches.forEach patchLoop@{ patch ->
