@@ -1,3 +1,24 @@
+# [2.15.0](https://github.com/thealteria/revanced-cli/compare/v2.14.0...v2.15.0) (2022-12-19)
+
+
+### Bug Fixes
+
+* don't log when package is incompatible and `exclusive` option is used ([ad81a1b](https://github.com/thealteria/revanced-cli/commit/ad81a1b656586226f8b7b8d1123c52b0f3f2e6f7))
+* exclude patcher dependency from minimizing ([d5794b9](https://github.com/thealteria/revanced-cli/commit/d5794b94ca19c9287190a3b863c97a089893cc07))
+* **gitignore:** ignore `options.toml` ([#158](https://github.com/thealteria/revanced-cli/issues/158)) ([7be9af0](https://github.com/thealteria/revanced-cli/commit/7be9af0942de2a834b9e57403d46263b65f1a422))
+* invalid header when writing a `ZipFile` ([#169](https://github.com/thealteria/revanced-cli/issues/169)) ([6e703eb](https://github.com/thealteria/revanced-cli/commit/6e703eb8e8d7da0e52266c4965f37bc8aafb409c))
+* start with uppercase in log message ([ae91b0d](https://github.com/thealteria/revanced-cli/commit/ae91b0d597b107a152e1b630b8c16a795a7ca3b3))
+* use correct prefix in log message ([1a67cd8](https://github.com/thealteria/revanced-cli/commit/1a67cd81da5ed7f259b6dbaeb66a7eef4a113034))
+
+
+### Features
+
+* do not warn on incompatible packages ([39e377b](https://github.com/thealteria/revanced-cli/commit/39e377bc485e2892422e9712d30e6ff665856ac1))
+* improve missing compatibility annotation tracing log ([2c7eb72](https://github.com/thealteria/revanced-cli/commit/2c7eb7274c713dfbcb53c5f3b6a9205c751914fa))
+* simplify log message ([74d73ca](https://github.com/thealteria/revanced-cli/commit/74d73ca3a7ba2f5da872fe9a241629e1c143cd4e))
+* trace logs when compatibility annotation is missing ([#166](https://github.com/thealteria/revanced-cli/issues/166)) ([c590bf5](https://github.com/thealteria/revanced-cli/commit/c590bf559c4d2d2667c2af0c0da23d4706fcd4b7))
+* use `am` instead of `monkey` to launch the app ([#159](https://github.com/thealteria/revanced-cli/issues/159)) ([6a35cf7](https://github.com/thealteria/revanced-cli/commit/6a35cf7ea46a4474120626ce03d28490cc96bf07))
+
 ## [2.18.2](https://github.com/revanced/revanced-cli/compare/v2.18.1...v2.18.2) (2022-12-16)
 
 
